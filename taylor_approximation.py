@@ -319,8 +319,8 @@ def compare_graphs(x_vars:list[float], number_list:list[int], show=True, save=Fa
     """
     COLOURS = ['red', 'black', 'yellow', 'green']
     plt.grid(color='grey', linestyle='dashdot', linewidth=0.2)
-    plt.title('Comparing built-in function graph to our\
-approximations for different numbers of first elements')
+    plt.title('Comparing built-in function graph to our \ 
+approximations \nfor different numbers of first elements')
     plt.xlabel('x')
     plt.ylabel('y')
     plt.plot(x_vars, np.sin(4*x_vars)**3, label='built-in', color='blue')
@@ -344,22 +344,22 @@ def get_input():
     """  GET USER INPUT. Show or save the graph draw on input data  """
     try:
         min_num = float(input('Print minimum value for x on graph\n>>> '))
-        max_num = float(input('Print minimum value for x on graph\n>>> '))
+        max_num = float(input('Print maximum value for x on graph\n>>> '))
         step = float(input('Print step value for x on graph\n>>> '))
         print('Print in different lines(separated with ENTER) number of elements of the Taylor\
-               series to take into account. If you want stop print empty line(press ENTER)')
+series to take into account. If you want stop print empty line(press ENTER)')
         numbers = []
         while True:
             input_text = input('>>> ')
             if input_text:
-                numbers.append(int('>>> '))
+                numbers.append(int(input_text))
             else:
                 break
-        show = bool(input('Do you want to see the graph? If yes print anything'))
-        save = bool(input('Do you want to save the graph in current directory? If yes print anything'))
+        show = bool(input('Do you want to see the graph? If yes print anything\n>>> '))
+        save = bool(input('Do you want to save the graph in current directory? If yes print anything\n>>> '))
         compare_graphs(np.arange(min_num, max_num, step), numbers, show, save)
     except (ValueError, TypeError, IndexError):
-        print('Oops.. Something went wrong. If you want run the program again.')
+        print('Oops.. Something went wrong. If you want, run the program again.')
 
 if __name__ == '__main__':
     get_input()
